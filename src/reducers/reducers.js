@@ -6,76 +6,66 @@ import {
 	RECEIVE_TICKER,
 	REQUEST_TICKER_FAILURE,
 	REQUEST_ORDER_BOOK,
-	RECEIVE_ORDER_BOOK,
-	REQUEST_ORDER_BOOK_FAILURE
+	RECEIVE_ORDER_BOOK
 } from './../actions';
 
 const initialState = {
-	isFetchingTicker: false,
-	tickerError: false,
-	isFetchingOrder: false,
-	orderBookError: false,
-	ticker: {}
-}
+    isFetchingTicker: false,
+    tickerError: false,
+    isFetchingOrder: false,
+    ticker: {}
+};
 
 const selectedPair = (state = '', action) => {
     switch (action.type) {
         case SELECT_PAIR:
-            return action.pair
+            return action.pair;
         default:
-            return state
+            return state;
     }
-    
-}
+
+};
 
 const fetchData = (state = initialState, action) => {
     switch (action.type) {
-        
-		case REQUEST_TICKER:
-			return {
-				...state,
-				isFetchingTicker: true
-			}
-		case RECEIVE_TICKER:
-			return {
-				...state,
-				isFetchingTicker: false,
-				tickerError: false,
-				ticker: action.ticker
-			}
-		case REQUEST_TICKER_FAILURE:
-			return {
-				...state,
-				tickerError: true,
-				isFetchingTicker: false
-			}
-		case REQUEST_ORDER_BOOK:
-			return {
-				...state,
-				isFetchingOrder: true
-			}
-		case RECEIVE_ORDER_BOOK:
-			return {
-				...state,
-				isFetchingOrder: false,
-				orderBookError: false,
+
+        case REQUEST_TICKER:
+            return {
+                ...state,
+                isFetchingTicker: true
+            };
+        case RECEIVE_TICKER:
+            return {
+                ...state,
+                isFetchingTicker: false,
+                tickerError: false,
+                ticker: action.ticker
+            };
+        case REQUEST_TICKER_FAILURE:
+            return {
+                ...state,
+                tickerError: true,
+                isFetchingTicker: false
+            };
+        case REQUEST_ORDER_BOOK:
+            return {
+                ...state,
+                isFetchingOrder: true
+            };
+        case RECEIVE_ORDER_BOOK:
+            return {
+                ...state,
+                isFetchingOrder: false,
                 orderBook: action.orderBook
-			}
-		case REQUEST_ORDER_BOOK_FAILURE:
-			return {
-				...state,
-				orderBookError: true,
-				isFetchingOrder: false,
-                orderBook: {}
-			}
-		default:
-			return state
-	}
-}
+            };
+        default:
+            return state;
+    }
+};
 
 const rootReducer = combineReducers({
     selectedPair,
     fetchData
-})
+});
 
-export default rootReducer
+export default rootReducer;

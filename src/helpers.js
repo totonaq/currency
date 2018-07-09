@@ -55,7 +55,7 @@ export const handleResponse = response => {
 
 
 export const tickerErrorMsg = 
-	'При загрузке данных возникла ошибка. ' +
-	'Пожалуйста, проверьте ваш доступ к сайту exmo.com.';
+	'Failed to load resource. ' +
+	'Please check your connection to exmo.com.';
 export const bookOrderErrorMsg =
-    'При загрузке данных возникла ошибка.';
+    'Failed to load resource.';

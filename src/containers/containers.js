@@ -12,11 +12,7 @@ import {
     selectPair
 } from './../actions';
 
-import {
-	getPriceChange,
-	doesLocalStorageExist
-} from './../helpers';
-
+import { getPriceChange } from './../helpers';
 
 export const CurrencyPairs = connect(
 
@@ -33,30 +29,15 @@ export const CurrencyList = connect(
 
     state => {
         const tickerRaw = state.fetchData.ticker || {};
+        const localTickerRaw = JSON.parse(localStorage.getItem('ticker'));
 
         let ticker = Object.keys(tickerRaw).map((item, idx) => {
             return {
                 title: item,
-                current_price: tickerRaw[item].buy_price
+                current_price: tickerRaw[item].buy_price,
+                saved_price: localTickerRaw[item].buy_price
             };
         });
-
-        if (!doesLocalStorageExist(localStorage.getItem('ticker'))) {
-
-            localStorage.setItem('ticker', JSON.stringify(ticker));
-
-        } else {
-            const localTickerRaw = JSON.parse(localStorage.getItem('ticker'));
-
-            ticker = Object.keys(localTickerRaw).map((item, idx) => {
-                return {
-                    ...ticker[idx],
-                    title: item,
-                    saved_price: localTickerRaw[item].buy_price
-                };
-            });
-            
-        }
 
         return {
             ticker
@@ -75,7 +56,7 @@ export const CurrencyDetailedPairInfo = connect(
         return {
             isFetchingTicker: state.fetchData.isFetchingTicker,
             isFetchingOrder: state.fetchData.isFetchingOrder,
-            orderBookError: state.fetchData.orderBookError,
+            tickerError: state.fetchData.tickerError,
             isTickerData
         };
     },

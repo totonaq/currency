@@ -41,15 +41,15 @@ class DetailedPairInfo extends Component {
 		const {
 			isFetchingTicker,
 			isFetchingOrder,
-			orderBookError,
-            isTickerData
+            isTickerData,
+            tickerError
 		} = this.props;	
 
         if (isFetchingTicker) {
 
             return <Loading />;
 
-        } else if (isTickerData && !isFetchingTicker) {
+        } else if (isTickerData) {
             return (
                 <section className='app-content-details-wrap'>
 
@@ -60,7 +60,7 @@ class DetailedPairInfo extends Component {
 
                             <Loading /> :
 
-                            orderBookError ?
+                            tickerError ?
 
                                 <ErrorMessage msg={bookOrderErrorMsg} /> :
 
@@ -72,9 +72,9 @@ class DetailedPairInfo extends Component {
                     }
                 </section>
             );
-        } else if (!isTickerData && !isFetchingTicker) {
+        } else if (!isTickerData) {
             return <NotFound />;
-        }
+        } 
 
 	}
 }
@@ -84,7 +84,6 @@ DetailedPairInfo.propTypes = {
     isFetchingOrder: PropTypes.bool.isRequired,
     isFetchingTicker: PropTypes.bool.isRequired,
     isTickerData: PropTypes.bool.isRequired,
-    orderBookError: PropTypes.bool.isRequired,
     selectPair: PropTypes.func.isRequired
 };
 

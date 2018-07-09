@@ -309,9 +309,9 @@ td {
     }
 
 .app-error {
-    border: 1px solid red;
     border-radius: 3px;
-    color: #fff;
+    box-shadow: 0 0 10px #5e5a8e;
+    color: #f97979;
     line-height: 1.4;
     margin: 30px 15px;
     padding: 15px;
