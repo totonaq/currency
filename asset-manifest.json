@@ -1,9 +1,9 @@
 {
-  "main.css": "static/css/main.b05d4aef.css",
-  "main.css.map": "static/css/main.b05d4aef.css.map",
-  "main.js": "static/js/main.c17e8e73.js",
-  "main.js.map": "static/js/main.c17e8e73.js.map",
-  "static\\media\\cancel.svg": "static/media/cancel.02c6da78.svg",
-  "static\\media\\down.svg": "static/media/down.11624334.svg",
-  "static\\media\\up.svg": "static/media/up.54e5d159.svg"
+  "main.css": "static/css/main.7303d6e5.css",
+  "main.css.map": "static/css/main.7303d6e5.css.map",
+  "main.js": "static/js/main.ec36d483.js",
+  "main.js.map": "static/js/main.ec36d483.js.map",
+  "static\\media\\bitcoin.svg": "static/media/bitcoin.be676b27.svg",
+  "static\\media\\down.svg": "static/media/down.d6630cac.svg",
+  "static\\media\\up.svg": "static/media/up.938affd1.svg"
 }
